@@ -1,22 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Login</title>
-    <script src="../js/register.js"></script> <!-- Optional for later -->
-  </head>
-  <body>
-    <h2>Login</h2>
+    <link rel="stylesheet" href="../css/style.css"> <!-- Optional: if you have shared CSS -->
+    <script src="../js/register.js"></script> <!-- Optional for validation -->
+    <style>
+        /* Full-screen blue background */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #007BFF; /* solid blue */
+            font-family: Arial, sans-serif;
+        }
 
-    <form id="loginForm">
-      <label>Email:</label><br>
-      <input type="email" id="email" required><br><br>
+        /* Transparent form container */
+        .form-container {
+            background-color: rgba(173, 216, 230, 0.8); /* baby blue with transparency */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            width: 350px;
+            text-align: center;
+        }
 
-      <label>Password:</label><br>
-      <input type="password" id="password" required><br><br>
+        /* Form title */
+        .form-container h2 {
+            margin-bottom: 25px;
+            color: #003366; /* dark blue */
+        }
 
-      <button type="submit">Login</button>
-    </form>
+        /* Inputs style */
+        .form-container input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
 
-    <p>Don't have an account? <a href="register.php">Register here</a></p>
-  </body>
+        /* Button style */
+        .form-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0056b3; /* darker blue button */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #003d80;
+        }
+
+        /* Message styling */
+        #message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        /* Link style */
+        .form-container a {
+            color: #003366;
+            text-decoration: none;
+        }
+
+        .form-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Login</h2>
+        <form id="loginForm" method="POST" action="#"> <!-- Replace # with actual login action -->
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="message"></p>
+        <p>Don't have an account? <a href="register.php">Register here</a></p>
+    </div>
+</body>
 </html>

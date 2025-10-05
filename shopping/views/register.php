@@ -1,34 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Register</title>
+    <link rel="stylesheet" href="../css/style.css">
     <script src="../js/register.js"></script>
-  </head>
-  <body>
-    <h2>Customer Registration</h2>
+    <style>
+        /* Full-screen blue background */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #007BFF; /* solid blue background */
+            font-family: Arial, sans-serif;
+        }
 
-    <form id="registerForm" method="POST" action="../actions/register_customer_action.php">
-      <label>Full Name:</label><br>
-      <input type="text" name="fullname" required><br><br>
+        /* Transparent form container */
+        .form-container {
+            background-color: rgba(173, 216, 230, 0.8); /* baby blue with transparency */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            width: 350px;
+            text-align: center;
+        }
 
-      <label>Email:</label><br>
-      <input type="email" name="email" required><br><br>
+        /* Form title */
+        .form-container h2 {
+            margin-bottom: 25px;
+            color: #003366; /* dark blue */
+        }
 
-      <label>Password:</label><br>
-      <input type="password" name="password" required><br><br>
+        /* Inputs style */
+        .form-container input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
 
-      <label>Country:</label><br>
-      <input type="text" name="country" required><br><br>
+        /* Button style */
+        .form-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0056b3; /* darker blue button */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-      <label>City:</label><br>
-      <input type="text" name="city" required><br><br>
+        .form-container button:hover {
+            background-color: #003d80;
+        }
 
-      <label>Contact Number:</label><br>
-      <input type="text" name="contact" required><br><br>
+        /* Error/validation messages */
+        #message {
+            color: red;
+            margin-top: 10px;
+        }
 
-      <button type="submit">Register</button>
-    </form>
+        /* Link style */
+        .form-container a {
+            color: #003366;
+            text-decoration: none;
+        }
 
-    <p id="message"></p>
-  </body>
+        .form-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Customer Registration</h2>
+        <form id="registerForm" action="../actions/register_customer_action.php" method="POST">
+            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="text" id="country" name="country" placeholder="Country" required>
+            <input type="text" id="city" name="city" placeholder="City" required>
+            <input type="text" id="contact" name="contact" placeholder="Contact Number" required>
+            <button type="submit">Register</button>
+        </form>
+        <p id="message"></p>
+        <p>Already have an account? <a href="login.php">Login here</a></p>
+    </div>
+</body>
 </html>
