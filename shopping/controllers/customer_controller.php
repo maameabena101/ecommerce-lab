@@ -1,11 +1,12 @@
-<?php
-require_once("../classes/customer_class.php");
-
-function register_customer_ctr($fullname, $email, $password, $country, $city, $contact) {
-    global $conn;
-    $customer = new Customer($conn);
-    return $customer->addCustomer($fullname, $email, $password, $country, $city, $contact);
+public function login_customer_ctr($email, $password) {
+    $customer = $this->customerClass->getCustomerByEmail($email);
+    if ($customer) {
+        if (password_verify($password, $customer['customer_pass'])) {
+            return ['success' => true, 'data' => $customer];
+        } else {
+            return ['success' => false, 'message' => 'Incorrect password'];
+        }
+    } else {
+        return ['success' => false, 'message' => 'Email not found'];
+    }
 }
-?>
-
-

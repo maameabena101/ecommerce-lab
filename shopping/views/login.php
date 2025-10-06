@@ -2,8 +2,10 @@
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Optional: if you have shared CSS -->
-    <script src="../js/register.js"></script> <!-- Optional for validation -->
+    <!-- Link your shared CSS (optional) -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Link your JS for login validation -->
+    <script src="../js/login.js"></script>
     <style>
         /* Full-screen blue background */
         body {
@@ -76,7 +78,7 @@
 <body>
     <div class="form-container">
         <h2>Login</h2>
-        <form id="loginForm" method="POST" action="#"> <!-- Replace # with actual login action -->
+        <form id="loginForm" method="POST" action="../actions/login_customer_action.php">
             <input type="email" id="email" name="email" placeholder="Email" required>
             <input type="password" id="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>

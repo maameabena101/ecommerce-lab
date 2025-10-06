@@ -17,5 +17,18 @@ class Customer {
         $stmt->bind_param("ssssssi", $fullname, $email, $hashed_password, $country, $city, $contact, $role);
         return $stmt->execute();
     }
+    
+    public function getCustomerByEmail($email) {
+    $stmt = $this->conn->prepare("SELECT * FROM customers WHERE customer_email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc();
+     }
+
+public function checkPassword($inputPassword, $storedPassword) {
+    return password_verify($inputPassword, $storedPassword);
+     }
+
 }
 ?>
