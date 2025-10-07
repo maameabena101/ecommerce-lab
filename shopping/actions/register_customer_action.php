@@ -2,6 +2,8 @@
 // Include database connection
 include("../settings/db_connection.php");
 
+require_once '../settings/core.php';
+
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
