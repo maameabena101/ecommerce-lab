@@ -1,52 +1,32 @@
-<?php
-session_start();
-?>
-
+<?php require_once 'settings/core.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Shopping Platform</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Optional -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .menu {
-            margin-bottom: 30px;
-        }
-        .menu a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-        }
-        .menu a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" type = "text/css" href="css/style.css">
 </head>
 <body>
-
 <div class="menu">
-    <?php if (!isset($_SESSION['user_id'])): ?>
-        <!-- User not logged in -->
-        <a href="views/register.php">Register</a>
-        <a href="views/login.php">Login</a>
-    <?php else: ?>
-        <!-- User logged in -->
+    <?php if (isUserLoggedIn()): ?>
         <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</span>
         <a href="actions/logout.php">Logout</a>
+
+        <?php if (isAdmin()): ?>
+            <a href="admin/category.php">Category</a>
+        <?php endif; ?>
+
+    <?php else: ?>
+        <a href="login/register.php">Register</a> |
+        <a href="login/login.php">Login</a>
     <?php endif; ?>
 </div>
 
 <h1>Welcome to the Shopping Platform</h1>
 
-<?php if (!isset($_SESSION['user_id'])): ?>
-    <p>Please log in or register to start shopping.</p>
-<?php else: ?>
+<?php if (isUserLoggedIn()): ?>
     <p>You are logged in as <?php echo htmlspecialchars($_SESSION['user_name']); ?>.</p>
+<?php else: ?>
+    <p>Please log in to access your account.</p>
 <?php endif; ?>
-
 </body>
 </html>

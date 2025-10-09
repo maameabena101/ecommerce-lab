@@ -1,17 +1,16 @@
 <?php
-// Start session
-session_start();
 
-// Database connection
-$host = 'localhost';
-$user = 'root'; // change if you have a password
-$pass = '';     // change if you have a password
-$db_name = 'shoppn'; // your database name
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-$conn = new mysqli($host, $user, $pass, $db_name);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+function isUserLoggedIn() {
+    return isset($_SESSION['user_id']);
+}
+
+
+function isAdmin() {
+    return (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 1);
 }
 ?>

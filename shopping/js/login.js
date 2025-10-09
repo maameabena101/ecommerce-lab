@@ -11,12 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
       method: "POST",
       body: formData
     })
-    .then(response => response.text())
+    .then(response => response.text) //won't need
     .then(data => {
-      if (data.trim() === "success") {
+      if (data.trim() === "success") { //if data.success
         window.location.href = "../index.php"; // Redirect after login
+        //
       } else {
-        message.textContent = data;
+        message.textContent = data; //message.textContent = data.message
       }
     })
     .catch(() => {

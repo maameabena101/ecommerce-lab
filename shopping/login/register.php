@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
-    <!-- Link your shared CSS (optional) -->
+    <title>Register</title>
     <link rel="stylesheet" href="../css/style.css">
-    <!-- Link your JS for login validation -->
-    <script src="../js/login.js"></script>
+    <script src="../js/register.js"></script>
     <style>
         /* Full-screen blue background */
         body {
@@ -14,11 +12,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #007BFF; /* solid blue */
+            background-color: #007BFF; /* solid blue background */
             font-family: Arial, sans-serif;
         }
 
-        /* Transparent form container */
+
         .form-container {
             background-color: rgba(173, 216, 230, 0.8); /* baby blue with transparency */
             padding: 40px;
@@ -28,13 +26,13 @@
             text-align: center;
         }
 
-        /* Form title */
+       
         .form-container h2 {
             margin-bottom: 25px;
             color: #003366; /* dark blue */
         }
 
-        /* Inputs style */
+    
         .form-container input {
             width: 90%;
             padding: 10px;
@@ -43,7 +41,7 @@
             border: 1px solid #ccc;
         }
 
-        /* Button style */
+      
         .form-container button {
             padding: 10px 20px;
             border: none;
@@ -58,7 +56,7 @@
             background-color: #003d80;
         }
 
-        /* Message styling */
+        /* Error/validation messages */
         #message {
             color: red;
             margin-top: 10px;
@@ -77,14 +75,18 @@
 </head>
 <body>
     <div class="form-container">
-        <h2>Login</h2>
-        <form id="loginForm" method="POST" action="../actions/login_customer_action.php">
+        <h2>Customer Registration</h2>
+        <form id="registerForm" action="../actions/register_customer_action.php" method="POST">
+            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
             <input type="email" id="email" name="email" placeholder="Email" required>
             <input type="password" id="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <input type="text" id="country" name="country" placeholder="Country" required>
+            <input type="text" id="city" name="city" placeholder="City" required>
+            <input type="text" id="contact" name="contact" placeholder="Contact Number" required>
+            <button type="submit">Register</button>
         </form>
         <p id="message"></p>
-        <p>Don't have an account? <a href="register.php">Register here</a></p>
+        <p>Already have an account? <a href="login.php">Login here</a></p>
     </div>
 </body>
 </html>

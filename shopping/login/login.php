@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Login</title>
+
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/register.js"></script>
+    
+    <style src="../css/style.css"></style>
+  
+    <script src="../js/login.js"></script>
     <style>
-        /* Full-screen blue background */
+        
         body {
             margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #007BFF; /* solid blue background */
+            background-color: #007BFF; 
             font-family: Arial, sans-serif;
         }
 
-        /* Transparent form container */
         .form-container {
-            background-color: rgba(173, 216, 230, 0.8); /* baby blue with transparency */
+            background-color: rgba(173, 216, 230, 0.8); 
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -26,13 +29,11 @@
             text-align: center;
         }
 
-        /* Form title */
         .form-container h2 {
             margin-bottom: 25px;
-            color: #003366; /* dark blue */
+            color: #003366;
         }
 
-        /* Inputs style */
         .form-container input {
             width: 90%;
             padding: 10px;
@@ -41,12 +42,12 @@
             border: 1px solid #ccc;
         }
 
-        /* Button style */
+    
         .form-container button {
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #0056b3; /* darker blue button */
+            background-color: #0056b3;
             color: white;
             cursor: pointer;
             transition: background-color 0.3s;
@@ -56,13 +57,11 @@
             background-color: #003d80;
         }
 
-        /* Error/validation messages */
         #message {
             color: red;
             margin-top: 10px;
         }
 
-        /* Link style */
         .form-container a {
             color: #003366;
             text-decoration: none;
@@ -75,18 +74,14 @@
 </head>
 <body>
     <div class="form-container">
-        <h2>Customer Registration</h2>
-        <form id="registerForm" action="../actions/register_customer_action.php" method="POST">
-            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+        <h2>Login</h2>
+        <form id="loginForm" method="POST" action="../actions/login_customer_action.php">
             <input type="email" id="email" name="email" placeholder="Email" required>
             <input type="password" id="password" name="password" placeholder="Password" required>
-            <input type="text" id="country" name="country" placeholder="Country" required>
-            <input type="text" id="city" name="city" placeholder="City" required>
-            <input type="text" id="contact" name="contact" placeholder="Contact Number" required>
-            <button type="submit">Register</button>
+            <button type="submit">Login</button>
         </form>
         <p id="message"></p>
-        <p>Already have an account? <a href="login.php">Login here</a></p>
+        <p>Don't have an account? <a href="register.php">Register here</a></p>
     </div>
 </body>
 </html>

@@ -1,10 +1,10 @@
 <?php
-// Include database connection
+
 include("../settings/db_connection.php");
 
 require_once '../settings/core.php';
 
-// Check if form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
     $fullname = trim($_POST['fullname']);
@@ -14,14 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $city = trim($_POST['city']);
     $contact = trim($_POST['contact']);
 
-    // Encrypt the password
+   
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Default fields
-    $image = NULL;
-    $user_role = 2; // 1 = admin, 2 = customer
+    //TODO: Csll the relevant controller function
 
-    // Prepare insert query
+    $image = NULL;
+    $user_role = 2; 
+
     $sql = "INSERT INTO customer 
             (customer_name, customer_email, customer_pass, customer_country, customer_city, customer_contact, customer_image, user_role)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
